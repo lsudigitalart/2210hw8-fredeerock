@@ -4,24 +4,22 @@ function setup() {
 }
 
 function draw() {
+
+}
+
+function mouseReleased() {
   background(0);
-  var m = millis();
-  println(m);
-
-  if (m > 1000 && m < 4000) {
-    scene1(20, 20, 100);
-  }
-
-  if (m > 4000 && m < 7000) {
-    scene2();
-  }
-
+  charGen(mouseX, mouseY, 100);
 }
 
-function scene1(x, y, r) {
-  ellipse(x, y, r);
-}
+function charGen(eyes, mouth, body) {
+  eY = height/2;
+  //body
+  fill(random(255), random(255), random(255));
+  ellipse(width/2, eY, body, body*random(3));
 
-function scene2(x, y, r) {
-  rect(100, 100, 20, 20);
+  //eyes
+  fill(random(255), random(255), random(255));
+  rectMode(CENTER);
+  rect(width/2, eY-20*random(2), map(eyes, 0, width, 10, 40), 8);
 }
